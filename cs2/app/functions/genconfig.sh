@@ -66,6 +66,8 @@ App::generateServerConfig () {
 			// -------- BASIC STUFF --------
 
 			log on
+   			logaddress_add_http "http://localhost:${LOGPORT}/log"
+      
 			sv_password "$PASS"
 			rcon_password "$RCON_PASS"
 
