@@ -97,7 +97,7 @@ App::generateServerConfig () {
 
 
 			// -------- GOTV --------
-			tv_enable 1
+			tv_enable 0
 			tv_advertise_watchable "${TV_ADVERTISE_WATCHABLE-1}"
 			tv_autorecord "${TV_AUTORECORD-0}"
 
@@ -131,6 +131,9 @@ App::generateServerConfig () {
 			writeid // Update banned_user.cfg
 			// You could add 'writeip' here, but banning ips is generally
 			// not effective, with most people having dynamic ip addressesf
+
+			sv_hibernate_when_empty 0
+			bot_join_after_player 0
 		EOF
 
 		# Additional commands, may be set through the gamemode script
