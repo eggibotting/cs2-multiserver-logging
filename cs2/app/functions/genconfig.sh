@@ -83,6 +83,7 @@ App::generateServerConfig () {
 			sv_cheats "$SV_CHEATS"
 
 			exec banned_user.cfg // Read list of banned users
+			sv_kick_ban_duration 0
 		EOF
 
 		# Conditionals
