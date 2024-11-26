@@ -134,6 +134,7 @@ App::generateServerConfig () {
 
 			sv_hibernate_when_empty 0
 			bot_join_after_player 0
+			exec warmup
 		EOF
 
 		# Additional commands, may be set through the gamemode script
