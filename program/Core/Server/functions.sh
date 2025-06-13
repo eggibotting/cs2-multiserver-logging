@@ -67,7 +67,11 @@ Core.Server::requestStart () {
 			#! /bin/bash
 			$(declare -f timestamp)
 			cd "$LAUNCH_DIR"
-			script -c '$(quote $LAUNCH_CMD)' "$LOGDIR/\$(timestamp)-server.log"
+			SERVER_LOGFILE="$LOGDIR/\$(timestamp)-server.log"
+			LOG_LINK="$LOGDIR/server.log"
+			rm -f "\$LOG_LINK"
+			ln -s "\$SERVER_LOGFILE" "\$LOG_LINK"
+			stdbuf -o0 -e0 $LAUNCH_CMD 2>&1 | tee "\$SERVER_LOGFILE"
 			echo \$? > "$TMPDIR/server.exit-code"
 		EOF
 
